@@ -1,7 +1,9 @@
 [
     "target/dist/prod/js/cplusplus.js",
     "target/dist/prod/js/utility.js",
-    "target/dist/prod/js/chiika.js",
+    "target/dist/prod/js/animeModel.js",
+    "target/dist/prod/js/animeList.js",
+    "target/dist/prod/js/user.js",
     "target/dist/prod/js/settings.js",
-    "target/dist/prod/js/animeModel.js"
+    "target/dist/prod/js/chiika.js"
 ]

@@ -16,5 +16,6 @@ var ApiList = [
   "getMangaList",
   "getUserInformation",
   "getAnimeDetails",
-  "getUserSettings"
+  "getUserSettings",
+  "setUserSettings"
 ];

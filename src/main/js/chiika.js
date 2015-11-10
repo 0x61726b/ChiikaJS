@@ -23,6 +23,19 @@ var Chiika = function()
     {
         return settings;
     };
+    self.getUserSettings = function(callback)
+    {
+        self.callApi("getUserSettings",callback);
+    };
+    self.setUserSettings = function(args,callback)
+    {
+        self.callApi("setUserSettings",args,callback);
+    };
+    self.getAnimeList = function(callback)
+    {
+        self.callApi("getAnimeList","",callback);
+    };
+
     self.callApi = function(name,args,callback)
     {
         ApiFuncCaller.callApi(name,args,callback);

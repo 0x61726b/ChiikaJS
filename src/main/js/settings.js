@@ -46,4 +46,3 @@ var Settings = function()
         return globalColor;
     };
 };
-chiika.settings = Settings;
