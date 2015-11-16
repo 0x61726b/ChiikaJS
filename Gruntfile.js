@@ -101,6 +101,10 @@ module.exports = function (grunt) {
                     {
                         src: 'target/js/<%= config.filename %>-min.js',
                         dest: 'target/js/<%= config.filename_with_version %>-min.js'
+                    } ,
+                    {
+                        src: 'target/js/<%= config.filename %>-min.js',
+                        dest: ''+grunt.option('target')+'/<%= config.filename_with_version %>-min.js'
                     }]
             }
         }
@@ -127,4 +131,5 @@ module.exports = function (grunt) {
         'closure-compiler',
         'copy:create_default_js_with_version',
     ]);
+    grunt.registerTask('chijs','default');
 };

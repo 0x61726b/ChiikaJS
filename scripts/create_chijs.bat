@@ -1,0 +1,1 @@
+grunt chijs --target=../ChiikaCef/Resources/UI/js
