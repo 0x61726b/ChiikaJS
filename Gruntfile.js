@@ -105,6 +105,10 @@ module.exports = function (grunt) {
                     {
                         src: 'target/js/<%= config.filename %>-min.js',
                         dest: ''+grunt.option('target')+'/<%= config.filename_with_version %>-min.js'
+                    } ,
+                    {
+                        src: 'target/js/<%= config.filename %>.js',
+                        dest: ''+grunt.option('target')+'/<%= config.filename_with_version %>.js'
                     }]
             }
         }

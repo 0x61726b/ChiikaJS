@@ -1,46 +1,52 @@
-/*global ApiFuncCaller */
+/*global apiFunctions,console */
 /**
-*
-*
-*
-*
-* @name Chiika JS
-* @namespace
-*
-*
-* @version @{chiika.js.version}
-* @since 0.0.0
-*/
-var Chiika = function()
+ *
+ *
+ *
+ *
+ * @name Chiika JS
+ * @namespace
+ *
+ *
+ * @version @{chiika.js.version}
+ * @since 0.0.0
+ */
+var Chiika = function ()
 {
-    var self = this,isInitialized = false,settings;
+    var self = this, isInitialized = false, settings;
 
-    self.getInitialized = function()
+    self.getInitialized = function ()
     {
-      return isInitialized;
+        return isInitialized;
     };
-    self.getSettings = function()
+    self.getSettings = function ()
     {
         return settings;
     };
-    self.getUserSettings = function(callback)
+    self.getUserSettings = function (callback)
     {
-        self.callApi("getUserSettings",callback);
+        self.callApi("getUserSettings", callback);
     };
-    self.setUserSettings = function(args,callback)
+    self.setUserSettings = function (args, callback)
     {
-        self.callApi("setUserSettings",args,callback);
+        self.callApi("setUserSettings", args, callback);
     };
-    self.getAnimeList = function(callback)
+    self.getAnimeList = function (success, error)
     {
-        self.callApi("getAnimeList","",callback);
+        apiFunctions.callApi(1, success, error, "", true);
     };
-
-    self.callApi = function(name,args,callback)
+    self.callApi = function (apiIndex, args, success, error)
     {
-        ApiFuncCaller.callApi(name,args,callback);
+        apiFunctions.callApi(apiIndex, success, error, args, false);
     };
-},chiika;
+}, chiika;
+function handleAnimelistCallback(args)
+{
+    console.log(args);
+}
+function handleAnimelistError(args)
+{
+    console.log(args);
+}
 
 chiika = new Chiika();
-
