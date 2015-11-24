@@ -1,4 +1,4 @@
-/*global window,ApiList,chiika,eval,console */
+/*global window,ApiList,chiika,eval,console,angular */
 /**
  *
  *
@@ -36,6 +36,10 @@ var ApiFuncCaller = function ()
         {
             console.log("You can't call this function outside of Chiika.");
         }
+    };
+    self.updateAngularElement = function(element,args)
+    {
+        angular.element(element).scope().updateAngularElement(args);
     };
 }, apiFunctions;
 

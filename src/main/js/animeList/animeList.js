@@ -1,4 +1,4 @@
-/*global chiika */
+/*global chiika,console,angular,$,apiFunctions */
 /**
 *
 *
@@ -13,14 +13,19 @@
 var UserAnimeList = function()
 {
     var self = this,
-            userAnimeList;
+            animeList;
 
     self.getUserAnimeList = function()
     {
-        return userAnimeList;
+        return animeList;
     };
-    self.setUserAnimeList = function(animeList)
+    self.setUserAnimeList = function(a)
     {
-        userAnimeList = animeList;
+        animeList = a;
+        console.log("Setting user anime list..size: " + animeList.length);
+        apiFunctions.updateAngularElement($("#watchingWrapper"),animeList);
+        angular.element($("#watchingWrapper")).scope().$apply();
+
     };
-};
+},_userAnimeList;
+_userAnimeList = new UserAnimeList();

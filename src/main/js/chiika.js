@@ -1,4 +1,4 @@
-/*global apiFunctions,console,document,$ */
+/*global apiFunctions,console,document,$,_userAnimeList */
 /**
  *
  *
@@ -33,26 +33,23 @@ var Chiika = function ()
     };
     self.getAnimeList = function (success, error)
     {
-        apiFunctions.callApi(1, success, error, "", true);
+        apiFunctions.callApi(1, this.handleAnimelistCallback, this.handleAnimelistError, "", true);
     };
     self.callApi = function (apiIndex, args, success, error)
     {
         apiFunctions.callApi(apiIndex, success, error, args, false);
     };
+    self.handleAnimelistCallback = function(args)
+    {
+        _userAnimeList.setUserAnimeList(args[0]);
+    };
+    self.handleAnimelistError = function(args)
+    {
+        console.log(args);
+    };
 }, chiika;
-function handleAnimelistCallback(args)
-{
-    console.log(args);
-}
-function handleAnimelistError(args)
-{
-    console.log(args);
-}
-
 chiika = new Chiika();
-//window.ChiikaGetAnimelist(handleAnimelistCallback, handleAnimelistError, "");
-
 $(document).ready(function()
 {
-//    window.ChiikaGetAnimelist(handleAnimelistCallback, handleAnimelistError, "");
+    chiika.getAnimeList();
 });
