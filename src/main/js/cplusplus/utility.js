@@ -37,9 +37,10 @@ var ApiFuncCaller = function ()
             console.log("You can't call this function outside of Chiika.");
         }
     };
-    self.updateAngularElement = function(element,args)
+    self.updateAngularElement = function(element,args,index)
     {
-        angular.element(element).scope().updateAngularElement(args);
+        angular.element(element).scope().updateAngularElement(args,index);
+        angular.element(element).scope().$apply();
     };
 }, apiFunctions;
 
